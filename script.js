@@ -27,3 +27,17 @@ let num2 = ''
 let op = ''
 
 // Create a new function operate that takes an operator and 2 numbers and then calls one of the above functions on the numbers.
+function operate(num1, num2, op) {
+    switch (op) {
+        case '+':
+            return addition(num1, num2);
+        case '-':
+            return subtraction(num1, num2);
+        case '*':
+            return multiplication(num1, num2);
+        case '/':
+            return division(num1, num2);
+        default:
+            return null;
+    }
+}
