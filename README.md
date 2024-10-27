@@ -1,13 +1,10 @@
 # calculator
 
-```
 ## Your calculator is going to contain functions for all of the basic math operators you typically find on calculators, so start by creating functions for the following items and testing them in your browser’s console.
-<ul>
-<li>add</li>
-<li>subtract</li>
-<li>multiply</li>
-<li>divide</li>
-</ul>
+add
+subtract
+multiply
+divide
 A calculator operation will consist of a number, an operator, and another number. For example, 3 + 5. Create three variables for each of the parts of a calculator operation. Create a variable for the first number, the operator, and the second number. You’ll use these variables to update your display later.
 Create a new function operate that takes an operator and 2 numbers and then calls one of the above functions on the numbers.
 Create a basic HTML calculator with buttons for each digit, each of the above functions and an “Equals” key.
@@ -24,4 +21,3 @@ You should round answers with long decimals so that they don’t overflow the sc
 Pressing = before entering all of the numbers or an operator could cause problems!
 Pressing “clear” should wipe out any existing data. Make sure the user is really starting fresh after pressing “clear”
 Display a snarky error message if the user tries to divide by 0… and don’t let it crash your calculator!
-```

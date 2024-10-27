@@ -41,3 +41,28 @@ function operate(num1, num2, op) {
             return null;
     }
 }
+
+const display = document.querySelector('.display');
+// Update display on button call
+const numberButtons = document.querySelectorAll('.number');
+numberButtons.forEach(button => {
+    button.addEventListener('click', function () {
+        display.textContent += button.textContent;
+    });
+});
+// Perform operations
+document.querySelector('.equals').addEventListener('click', function () {
+    num2 = parseFloat(display.textContent);
+    let result = operate(num1, num2, op);
+    display.textContent = result;
+    num1 = result
+});
+// Handle clear
+document.querySelector('clear').addEventListener('click', function () {
+    num1 = '';
+    num2 = '';
+    op = '';
+    display.textContent = '0';
+})
+// Handle edge cases
+result = Math.round(result * 100) / 100;
