@@ -29,6 +29,8 @@ let result = '';
 
 // Create a new function operate that takes an operator and 2 numbers and then calls one of the above functions on the numbers.
 function operate(num1, num2, op) {
+    num1 = parseFloat(num1);
+    num2 = parseFloat(num2);
     switch (op) {
         case '+':
             return addition(num1, num2);
@@ -51,9 +53,8 @@ const clearButton = document.querySelector('.clear');
 // Update display on button call
 numberButtons.forEach(button => {
     button.addEventListener('click', function () {
-        if (display.textContent === '0' || op) {
+        if (display.textContent === '0' || display.textContent === num1) {
             display.textContent = '';
-            op = '';
         }
         display.textContent += button.textContent;
     });
@@ -68,11 +69,18 @@ operatorButtons.forEach(button => {
 })
 // Handle Equals
 equalsButton.addEventListener('click', function () {
-    num2 = display.textContent;
-    result = operate(num1, num2, op);
-    display.textContent(Math.round(result * 100) / 100);
-    num1 = result;
-    op = ''
+    if (num1 && op) {
+        num2 = display.textContent;
+        result = operate(num1, num2, op);
+        if (typeof result === 'number') {
+            result = Math.round(result * 100) / 100;
+        }
+        display.textContent = result;
+        num1 = result;
+        op = '';
+        num2 = '';
+    }
+
 })
 
 // Handle clear
