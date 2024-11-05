@@ -42,8 +42,8 @@ function operate(num1, num2, op) {
             return division(num1, num2);
         default:
             return null;
-    }
-}
+    };
+};
 
 const display = document.querySelector('.display');
 const numberButtons = document.querySelectorAll('.number');
@@ -61,19 +61,21 @@ numberButtons.forEach(button => {
 });
 // Perform operations
 operatorButtons.forEach(button => {
-    if (op && num1) {
-        num2 = display.textContent;
-        result = operate(num1, num2, op);
-        if (typeof result === 'number') {
-            result = Math.round(result * 100) / 100;
+    button.addEventListener('click', function () {
+        if (op && num1) {
+            num2 = display.textContent;
+            result = operate(num1, num2, op);
+            if (typeof result === 'number') {
+                result = Math.round(result * 100) / 100;
+            }
+            display.textContent = result;
+            num1 = result;
+        } else {
+            num1 = display.textContent
         }
-        display.textContent = result;
-        num1 = result;
-    } else {
-        num1 = display.textContent;
-    }
-    op = button.textContent;
-})
+        op = button.textContent;
+    });
+});
 // Handle Equals
 equalsButton.addEventListener('click', function () {
     if (num1 && op) {
@@ -86,9 +88,9 @@ equalsButton.addEventListener('click', function () {
         num1 = result;
         op = '';
         num2 = '';
-    }
+    };
 
-})
+});
 
 // Handle clear
 clearButton.addEventListener('click', function () {
