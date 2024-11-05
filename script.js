@@ -63,7 +63,7 @@ operatorButtons.forEach(button => {
     button.addEventListener('click', function () {
         num1 = display.textContent;
         op = button.textContent;
-        display.textContent = '0';
+        display.textContent = num1;
     })
 })
 // Handle Equals
