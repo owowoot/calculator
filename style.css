@@ -1,0 +1,19 @@
+.calculator {
+    display: grid;
+    width: 200px;
+    gap: 5px;
+}
+
+.display {
+    grid-column: span 4;
+    background: #eee;
+    padding: 10px;
+    font-size: 24px;
+    text-align: right;
+}
+
+button {
+    font-size: 18px;
+    padding: 10px;
+    cursor: pointer;
+}
