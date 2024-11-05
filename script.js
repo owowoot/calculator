@@ -61,11 +61,18 @@ numberButtons.forEach(button => {
 });
 // Perform operations
 operatorButtons.forEach(button => {
-    button.addEventListener('click', function () {
+    if (op && num1) {
+        num2 = display.textContent;
+        result = operate(num1, num2, op);
+        if (typeof result === 'number') {
+            result = Math.round(result * 100) / 100;
+        }
+        display.textContent = result;
+        num1 = result;
+    } else {
         num1 = display.textContent;
-        op = button.textContent;
-        display.textContent = num1;
-    })
+    }
+    op = button.textContent;
 })
 // Handle Equals
 equalsButton.addEventListener('click', function () {
